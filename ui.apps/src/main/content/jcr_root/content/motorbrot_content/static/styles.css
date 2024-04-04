@@ -1,0 +1,38 @@
+
+body {
+    margin: 1em 5%;
+    background-color: #fafafa;
+    font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: serif;
+}
+
+nav {
+    background-color: #f9bb00;
+    border: 2px solid #f9bb00;
+    padding: 0.5em;
+    border-radius: 3px 3px 0 0;
+}
+
+nav, nav a  {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.body {
+    padding: 0 2em;
+}
+
+.explanation {
+    font-style: italic;
+}
+
+footer {
+    border-top: 2px solid #eeeeee;
+    margin-top: 1em;
+    padding: 1em;
+    font-size: 0.8em;
+}

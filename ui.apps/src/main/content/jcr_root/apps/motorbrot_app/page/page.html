@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <sly data-sly-include="${'head.html'}"/>
+</head>
+    <body>
+        <nav >
+            <a href="/content/motorbrot_content/home.html">Home</a>
+            <sly data-sly-unwrap data-sly-list.child="${resource.listChildren}">
+                | <a href="${child.path}.html">${child.name}</a>
+            </sly>
+        </nav>
+        <div class="body">
+            <sly data-sly-include="${'body.html'}"/>
+            <div class="explanation">
+                This is a standard Sling page. The title and description rendered are 
+                taken from the resource properties. The resource currently being rendered is
+                ${resource.path} and its resource type is ${properties.sling:resourceType} 
+            </div>
+        </div>
+        <footer>
+            <sly data-sly-include="${'footer.html'}"/>
+        </footer>
+    </body>
+</html>
