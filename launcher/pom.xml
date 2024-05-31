@@ -21,7 +21,7 @@
     </description>
     <build>
         <plugins>
-            <plugin>
+          <plugin>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>slingfeature-maven-plugin</artifactId>
                 <extensions>true</extensions>
@@ -45,36 +45,53 @@
                      -->
                     <aggregates>
                         <aggregate>
-                            <classifier>app</classifier>
-                            <filesInclude>*.json</filesInclude>
+                            <title>Sample Infra - Slimpogrine Base - Seed</title>
+                            <classifier>seed</classifier>
                             <includeArtifact>
                                 <groupId>org.apache.sling</groupId>
                                 <artifactId>org.apache.sling.starter</artifactId>
-                                <classifier>nosample_base</classifier>
-                                <version>${sling.starter.version}</version>
-                                <type>slingosgifeature</type>
-                            </includeArtifact>
-                            <includeArtifact>
-                                <groupId>org.apache.sling</groupId>
-                                <artifactId>org.apache.sling.starter</artifactId>
-                                <classifier>oak_persistence_sns</classifier>
-                                <version>${sling.starter.version}</version>
-                                <type>slingosgifeature</type>
-                            </includeArtifact>
-                            <includeArtifact>
-                                <groupId>org.apache.sling</groupId>
-                                <artifactId>org.apache.sling.starter</artifactId>
-                                <classifier>composum</classifier>
-                                <version>${sling.starter.version}</version>
+                                <version>${slimpogrine.starter.version}</version>
+                                <classifier>slimpogrine_composite_seed</classifier>
                                 <type>slingosgifeature</type>
                             </includeArtifact>
                         </aggregate>
+                        <aggregate>
+                            <title>Sample Infra - CMS Base - Runtime</title>
+                            <classifier>runtime</classifier>
+                            <includeArtifact>
+                                <groupId>org.apache.sling</groupId>
+                                <artifactId>org.apache.sling.starter</artifactId>
+                                <version>${slimpogrine.starter.version}</version>
+                                <classifier>slimpogrine_composite_runtime</classifier>
+                                <type>slingosgifeature</type>
+                            </includeArtifact>
+                        </aggregate>
+                        <!-- Add any additional custom artifacts here 
+                        <aggregate>
+                            <classifier>motorbrot</classifier>
+                            <title>Sample Infra - Motorbrot Apps</title>
+                            <filesInclude>**/*.json</filesInclude>
+                            <includeArtifact>
+                                <groupId>${project.groupId}</groupId>
+                                <artifactId>all</artifactId>
+                                <version>${project.version}</version>
+                                <classifier>site</classifier>
+                                <type>slingosgifeature</type>
+                            </includeArtifact>
+                        </aggregate>
+                                                -->
+                      
+                        
                     </aggregates>
-                    <scans>
+                    
+                    <!--scans>
                         <scan>
-                            <includeClassifier>app</includeClassifier>
+                            <includeClassifier>seed</includeClassifier>
                         </scan>
-                    </scans>
+                        <scan>
+                            <includeClassifier>runtime</includeClassifier>
+                        </scan>
+                    </scans-->
                 </configuration>
                 <executions>
                     <execution>
@@ -84,6 +101,7 @@
                             <goal>aggregate-features</goal>
                             <goal>analyse-features</goal>
                             <goal>attach-features</goal>
+                            <goal>attach-featurearchives</goal>
                         </goals>
                     </execution>
                </executions>
